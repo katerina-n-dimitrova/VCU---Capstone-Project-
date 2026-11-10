@@ -1,0 +1,201 @@
+{
+  "$comment": "SAMPLE PAYLOAD - SIMULATED DATA, NOT FROM A REAL VEHICLE.",
+  "description": "Critical fault: the inverter is above its approved temperature.",
+  "whatTheAppDoes": "A red notification appears and stays until acknowledged. The overview headline reads Critical, the fault card shows 'Requires immediate shutdown', and the event is marked on the inverter-temperature chart.",
+  "endpoints": {
+    "GET /api/v1/status": {
+      "vehicleId": "TUKTUK-001",
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "sequenceNumber": 48402,
+      "operatingState": "fault",
+      "battery": {
+        "voltageV": 72.8,
+        "currentA": 96.4,
+        "stateOfChargePercent": 61
+      },
+      "phaseCurrentA": {
+        "phaseA": 149.2,
+        "phaseB": 148.1,
+        "phaseC": 149.9
+      },
+      "inputDuty": 88.5,
+      "temperatureC": {
+        "inverter": 95.6,
+        "mcu": 61.2
+      },
+      "uptimeSeconds": 4892,
+      "location": {
+        "latitude": -1.28638,
+        "longitude": 36.81722,
+        "accuracyMeters": 6.5,
+        "timestamp": "2026-09-29T14:34:05.000Z",
+        "valid": true,
+        "satellitesUsed": 11,
+        "speedKph": 24.1
+      },
+      "communication": {
+        "stm32Connected": true,
+        "esp32Connected": true,
+        "canConnected": true,
+        "gnssConnected": true,
+        "lastCanMessageAt": "2026-09-29T14:34:07.180Z",
+        "canReceiveErrorCount": 0,
+        "canBusLoadPercent": 22.4
+      },
+      "activeFaults": [
+        {
+          "id": "INV_OVER_TEMP-2026-09-29T14:33:58.100Z",
+          "code": "INV_OVER_TEMP",
+          "title": "Inverter temperature is too high",
+          "description": "The inverter has risen above its approved operating temperature. Continuing to drive risks permanent damage to the power stage.",
+          "subsystem": "inverter",
+          "severity": "critical",
+          "status": "active",
+          "detectedAt": "2026-09-29T14:33:58.100Z",
+          "lastSeenAt": "2026-09-29T14:34:07.180Z",
+          "resolvedAt": null,
+          "measuredValue": 95.6,
+          "unit": "°C",
+          "warningThreshold": 80,
+          "criticalThreshold": 95,
+          "possibleCauses": [
+            "Cooling fan has stopped or is running slowly",
+            "Heatsink fins are blocked with dust or debris",
+            "Sustained heavy load, such as a long climb with a full load"
+          ],
+          "recommendedActions": [
+            "Stop the vehicle safely and let the inverter cool before touching it",
+            "Check that the cooling fan spins freely and runs when the system is powered",
+            "Clear dust and debris from the heatsink and air path"
+          ],
+          "measurementId": "inverterTemperature",
+          "normalRangeMin": -10,
+          "normalRangeMax": 70,
+          "vehicleCanContinue": false,
+          "requiresImmediateShutdown": true,
+          "clearing": "authorized-tool-required",
+          "occurrenceCount": 1
+        }
+      ]
+    },
+    "GET /api/v1/measurements": {
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "measurements": {
+        "batteryVoltage": {
+          "value": 74.2,
+          "rawValue": 2968,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "batteryCurrent": {
+          "value": 38.4,
+          "rawValue": 2368,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "stateOfCharge": {
+          "value": 78,
+          "rawValue": 156,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "inputDuty": {
+          "value": 46.2,
+          "rawValue": 462,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentA": {
+          "value": 59.1,
+          "rawValue": 2782,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentB": {
+          "value": 58.7,
+          "rawValue": 2774,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentC": {
+          "value": 59.4,
+          "rawValue": 2788,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "inverterTemperature": {
+          "value": 95.6,
+          "rawValue": 1356,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "mcuTemperature": {
+          "value": 44.1,
+          "rawValue": 841,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        }
+      }
+    }
+  },
+  "websocketFrames": [
+    {
+      "type": "fault.new",
+      "data": {
+        "id": "INV_OVER_TEMP-2026-09-29T14:33:58.100Z",
+        "code": "INV_OVER_TEMP",
+        "title": "Inverter temperature is too high",
+        "description": "The inverter has risen above its approved operating temperature. Continuing to drive risks permanent damage to the power stage.",
+        "subsystem": "inverter",
+        "severity": "critical",
+        "status": "active",
+        "detectedAt": "2026-09-29T14:33:58.100Z",
+        "lastSeenAt": "2026-09-29T14:34:07.180Z",
+        "resolvedAt": null,
+        "measuredValue": 95.6,
+        "unit": "°C",
+        "warningThreshold": 80,
+        "criticalThreshold": 95,
+        "possibleCauses": [
+          "Cooling fan has stopped or is running slowly",
+          "Heatsink fins are blocked with dust or debris",
+          "Sustained heavy load, such as a long climb with a full load"
+        ],
+        "recommendedActions": [
+          "Stop the vehicle safely and let the inverter cool before touching it",
+          "Check that the cooling fan spins freely and runs when the system is powered",
+          "Clear dust and debris from the heatsink and air path"
+        ],
+        "measurementId": "inverterTemperature",
+        "normalRangeMin": -10,
+        "normalRangeMax": 70,
+        "vehicleCanContinue": false,
+        "requiresImmediateShutdown": true,
+        "clearing": "authorized-tool-required",
+        "occurrenceCount": 1
+      }
+    },
+    {
+      "type": "status",
+      "data": "<the status object above>"
+    }
+  ]
+}

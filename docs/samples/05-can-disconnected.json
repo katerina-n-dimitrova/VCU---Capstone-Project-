@@ -1,0 +1,206 @@
+{
+  "$comment": "SAMPLE PAYLOAD - SIMULATED DATA, NOT FROM A REAL VEHICLE.",
+  "description": "The ESP32 is serving the app, but no CAN frames are arriving from the STM32.",
+  "whatTheAppDoes": "The app stays connected and says so: 'The app is connected to the ESP32, but the ESP32 is not receiving data from the STM32.' Every STM32-sourced measurement becomes unavailable rather than frozen at its last value.",
+  "endpoints": {
+    "GET /api/v1/status": {
+      "vehicleId": "TUKTUK-001",
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "sequenceNumber": 48604,
+      "operatingState": "fault",
+      "battery": {
+        "voltageV": null,
+        "currentA": null,
+        "stateOfChargePercent": null
+      },
+      "phaseCurrentA": {
+        "phaseA": null,
+        "phaseB": null,
+        "phaseC": null
+      },
+      "inputDuty": null,
+      "temperatureC": {
+        "inverter": null,
+        "mcu": null
+      },
+      "uptimeSeconds": 4952,
+      "location": {
+        "latitude": -1.28638,
+        "longitude": 36.81722,
+        "accuracyMeters": null,
+        "timestamp": "2026-09-29T14:33:51.900Z",
+        "valid": false,
+        "satellitesUsed": 0,
+        "speedKph": null
+      },
+      "communication": {
+        "stm32Connected": false,
+        "esp32Connected": true,
+        "canConnected": false,
+        "gnssConnected": false,
+        "lastCanMessageAt": "2026-09-29T14:33:51.900Z",
+        "canReceiveErrorCount": 137,
+        "canBusLoadPercent": 0
+      },
+      "activeFaults": [
+        {
+          "id": "CAN_COMM_LOSS-2026-09-29T14:33:52.000Z",
+          "code": "CAN_COMM_LOSS",
+          "title": "No data from the vehicle controller",
+          "description": "The ESP32 is no longer receiving CAN messages from the STM32. Readings on screen are from before the link was lost and must not be treated as current.",
+          "subsystem": "communication",
+          "severity": "emergency",
+          "status": "active",
+          "detectedAt": "2026-09-29T14:33:52.000Z",
+          "lastSeenAt": "2026-09-29T14:34:07.250Z",
+          "resolvedAt": null,
+          "measuredValue": null,
+          "unit": null,
+          "warningThreshold": null,
+          "criticalThreshold": null,
+          "possibleCauses": [
+            "CAN wiring between the STM32 and the ESP32 is broken or disconnected",
+            "A CAN bus termination resistor is missing or has failed",
+            "The STM32 has reset, halted or lost power"
+          ],
+          "recommendedActions": [
+            "Stop the vehicle safely — the displayed readings are no longer live",
+            "Check that the STM32 has power and its status LED is behaving normally",
+            "Measure resistance across CAN-H and CAN-L with power off — roughly 60 Ω means both terminators are present"
+          ],
+          "measurementId": null,
+          "normalRangeMin": null,
+          "normalRangeMax": null,
+          "vehicleCanContinue": false,
+          "requiresImmediateShutdown": true,
+          "clearing": "self-clearing",
+          "occurrenceCount": 1
+        }
+      ]
+    },
+    "GET /api/v1/measurements": {
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "measurements": {
+        "batteryVoltage": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "batteryCurrent": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "stateOfCharge": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "inputDuty": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "phaseCurrentA": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "phaseCurrentB": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "phaseCurrentC": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "inverterTemperature": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        },
+        "mcuTemperature": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:33:51.900Z",
+          "receivedAt": "2026-09-29T14:33:51.900Z",
+          "quality": "missing",
+          "qualityDetail": "No CAN frames are being received from the STM32."
+        }
+      }
+    }
+  },
+  "websocketFrames": [
+    {
+      "type": "connection",
+      "data": {
+        "stm32Connected": false,
+        "canConnected": false,
+        "gnssConnected": false,
+        "lastCanMessageAt": "2026-09-29T14:33:51.900Z"
+      }
+    },
+    {
+      "type": "fault.new",
+      "data": {
+        "id": "CAN_COMM_LOSS-2026-09-29T14:33:52.000Z",
+        "code": "CAN_COMM_LOSS",
+        "title": "No data from the vehicle controller",
+        "description": "The ESP32 is no longer receiving CAN messages from the STM32. Readings on screen are from before the link was lost and must not be treated as current.",
+        "subsystem": "communication",
+        "severity": "emergency",
+        "status": "active",
+        "detectedAt": "2026-09-29T14:33:52.000Z",
+        "lastSeenAt": "2026-09-29T14:34:07.250Z",
+        "resolvedAt": null,
+        "measuredValue": null,
+        "unit": null,
+        "warningThreshold": null,
+        "criticalThreshold": null,
+        "possibleCauses": [
+          "CAN wiring between the STM32 and the ESP32 is broken or disconnected",
+          "A CAN bus termination resistor is missing or has failed",
+          "The STM32 has reset, halted or lost power"
+        ],
+        "recommendedActions": [
+          "Stop the vehicle safely — the displayed readings are no longer live",
+          "Check that the STM32 has power and its status LED is behaving normally",
+          "Measure resistance across CAN-H and CAN-L with power off — roughly 60 Ω means both terminators are present"
+        ],
+        "measurementId": null,
+        "normalRangeMin": null,
+        "normalRangeMax": null,
+        "vehicleCanContinue": false,
+        "requiresImmediateShutdown": true,
+        "clearing": "self-clearing",
+        "occurrenceCount": 1
+      }
+    }
+  ]
+}

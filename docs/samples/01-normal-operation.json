@@ -1,0 +1,137 @@
+{
+  "$comment": "SAMPLE PAYLOAD - SIMULATED DATA, NOT FROM A REAL VEHICLE.",
+  "description": "Normal operation. Everything reporting, no faults.",
+  "whatTheAppDoes": "Overall status reads Normal. Every measurement shows a value with a Normal band and a fresh update time.",
+  "endpoints": {
+    "GET /api/v1/status": {
+      "vehicleId": "TUKTUK-001",
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "sequenceNumber": 48211,
+      "operatingState": "driving",
+      "battery": {
+        "voltageV": 74.2,
+        "currentA": 38.4,
+        "stateOfChargePercent": 78
+      },
+      "phaseCurrentA": {
+        "phaseA": 59.1,
+        "phaseB": 58.7,
+        "phaseC": 59.4
+      },
+      "inputDuty": 46.2,
+      "temperatureC": {
+        "inverter": 52.4,
+        "mcu": 44.1
+      },
+      "uptimeSeconds": 4821,
+      "location": {
+        "latitude": -1.28638,
+        "longitude": 36.81722,
+        "accuracyMeters": 6.5,
+        "timestamp": "2026-09-29T14:34:05.000Z",
+        "valid": true,
+        "satellitesUsed": 11,
+        "speedKph": 24.1
+      },
+      "communication": {
+        "stm32Connected": true,
+        "esp32Connected": true,
+        "canConnected": true,
+        "gnssConnected": true,
+        "lastCanMessageAt": "2026-09-29T14:34:07.180Z",
+        "canReceiveErrorCount": 0,
+        "canBusLoadPercent": 22.4
+      },
+      "activeFaults": []
+    },
+    "GET /api/v1/measurements": {
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "measurements": {
+        "batteryVoltage": {
+          "value": 74.2,
+          "rawValue": 2968,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "batteryCurrent": {
+          "value": 38.4,
+          "rawValue": 2368,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "stateOfCharge": {
+          "value": 78,
+          "rawValue": 156,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "inputDuty": {
+          "value": 46.2,
+          "rawValue": 462,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentA": {
+          "value": 59.1,
+          "rawValue": 2782,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentB": {
+          "value": 58.7,
+          "rawValue": 2774,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentC": {
+          "value": 59.4,
+          "rawValue": 2788,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "inverterTemperature": {
+          "value": 52.4,
+          "rawValue": 924,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "mcuTemperature": {
+          "value": 44.1,
+          "rawValue": 841,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        }
+      }
+    }
+  },
+  "websocketFrames": [
+    {
+      "type": "status",
+      "data": "<the status object above>"
+    },
+    {
+      "type": "heartbeat",
+      "data": {
+        "timestamp": "2026-09-29T14:34:07.250Z"
+      }
+    }
+  ]
+}

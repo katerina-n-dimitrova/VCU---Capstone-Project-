@@ -1,0 +1,269 @@
+/*
+ * Design tokens.
+ *
+ * Colour rules this file encodes:
+ *  - green = normal, amber = warning, red = critical/emergency, grey = offline
+ *  - every status token comes with an `-ink` variant that meets WCAG AA for
+ *    text, because the mark colour alone is not always readable as type
+ *  - status is never the only signal: components pair these with an icon and
+ *    a word (see `SeverityIcon`, `StatusPill`)
+ *  - the three chart series colours were checked with the palette validator for
+ *    deuteranopia, protanopia and tritanopia separation in both themes, and
+ *    each series also carries its own dash pattern
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces and ink */
+  --page: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #f8f9fb;
+  --surface-3: #eef1f5;
+  --surface-inset: #f1f3f6;
+  --border: #d7dce3;
+  --border-strong: #b4bcc7;
+  --ink: #12161c;
+  --ink-2: #47505d;
+  --ink-muted: #656e7b;
+  --ink-inverse: #ffffff;
+
+  /* Brand / interactive */
+  --accent: #1b5fbd;
+  --accent-hover: #164f9e;
+  --accent-soft: #e7effb;
+  --accent-ink: #14489a;
+  --focus-ring: #1b5fbd;
+
+  /* Status: normal */
+  --normal: #0ca30c;
+  --normal-ink: #146414;
+  --normal-bg: #e9f6e9;
+  --normal-border: #a8dca8;
+
+  /* Status: warning */
+  --warning: #fab219;
+  --warning-ink: #7a4d00;
+  --warning-bg: #fdf3da;
+  --warning-border: #eccd8b;
+
+  /* Status: critical */
+  --critical: #d03b3b;
+  --critical-ink: #9d1616;
+  --critical-bg: #fbeaea;
+  --critical-border: #eeb4b4;
+
+  /* Status: emergency (darker red + its own icon) */
+  --emergency: #9b1111;
+  --emergency-ink: #7d0d0d;
+  --emergency-bg: #f8dede;
+  --emergency-border: #e09b9b;
+
+  /* Status: information */
+  --info: #1b5fbd;
+  --info-ink: #14489a;
+  --info-bg: #e7effb;
+  --info-border: #b3cbec;
+
+  /* Status: offline / unavailable */
+  --offline: #6b7480;
+  --offline-ink: #4a5361;
+  --offline-bg: #edeff2;
+  --offline-border: #cbd1d9;
+
+  /* Demo / simulation chrome — deliberately unlike any status colour */
+  --demo: #6b2fb5;
+  --demo-ink: #55249a;
+  --demo-bg: #f1eafc;
+  --demo-border: #cdb6ee;
+
+  /* Chart series (validated set) */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --grid: #e3e6ea;
+  --axis: #b9c0c9;
+
+  /* Typography */
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(18, 22, 28, 0.06);
+  --shadow: 0 2px 8px rgba(18, 22, 28, 0.08);
+  --shadow-lg: 0 8px 28px rgba(18, 22, 28, 0.16);
+
+  /* Layout */
+  --nav-width: 232px;
+  --header-height: 60px;
+  --bottom-nav-height: 62px;
+  --tap-target: 44px;
+  --content-max: 1360px;
+}
+
+/* Dark values are chosen for the dark surface, not flipped from light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --page: #0d0f12;
+    --surface: #16181c;
+    --surface-2: #1b1e23;
+    --surface-3: #22262c;
+    --surface-inset: #1f2329;
+    --border: #2e333a;
+    --border-strong: #454c56;
+    --ink: #f2f5f8;
+    --ink-2: #bcc4cf;
+    --ink-muted: #8d96a2;
+    --ink-inverse: #0d0f12;
+
+    --accent: #5b9bf0;
+    --accent-hover: #7db0f5;
+    --accent-soft: #16283f;
+    --accent-ink: #9cc4f7;
+    --focus-ring: #7db0f5;
+
+    --normal: #0ca30c;
+    --normal-ink: #5fd15f;
+    --normal-bg: #12250f;
+    --normal-border: #2f5b2c;
+
+    --warning: #fab219;
+    --warning-ink: #f6c65c;
+    --warning-bg: #2c2208;
+    --warning-border: #6b5316;
+
+    --critical: #e05c5c;
+    --critical-ink: #ff9191;
+    --critical-bg: #2e1414;
+    --critical-border: #6d2c2c;
+
+    --emergency: #ff6b6b;
+    --emergency-ink: #ffa3a3;
+    --emergency-bg: #3a1414;
+    --emergency-border: #8a2f2f;
+
+    --info: #5b9bf0;
+    --info-ink: #9cc4f7;
+    --info-bg: #14212f;
+    --info-border: #2d4a6b;
+
+    --offline: #8d96a2;
+    --offline-ink: #b3bcc7;
+    --offline-bg: #1f2329;
+    --offline-border: #3a4049;
+
+    --demo: #a87ce8;
+    --demo-ink: #c3a5f2;
+    --demo-bg: #241a36;
+    --demo-border: #4c3a6e;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --grid: #262b31;
+    --axis: #434a53;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* The explicit toggle wins over the OS setting, in both directions. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --page: #0d0f12;
+  --surface: #16181c;
+  --surface-2: #1b1e23;
+  --surface-3: #22262c;
+  --surface-inset: #1f2329;
+  --border: #2e333a;
+  --border-strong: #454c56;
+  --ink: #f2f5f8;
+  --ink-2: #bcc4cf;
+  --ink-muted: #8d96a2;
+  --ink-inverse: #0d0f12;
+
+  --accent: #5b9bf0;
+  --accent-hover: #7db0f5;
+  --accent-soft: #16283f;
+  --accent-ink: #9cc4f7;
+  --focus-ring: #7db0f5;
+
+  --normal: #0ca30c;
+  --normal-ink: #5fd15f;
+  --normal-bg: #12250f;
+  --normal-border: #2f5b2c;
+
+  --warning: #fab219;
+  --warning-ink: #f6c65c;
+  --warning-bg: #2c2208;
+  --warning-border: #6b5316;
+
+  --critical: #e05c5c;
+  --critical-ink: #ff9191;
+  --critical-bg: #2e1414;
+  --critical-border: #6d2c2c;
+
+  --emergency: #ff6b6b;
+  --emergency-ink: #ffa3a3;
+  --emergency-bg: #3a1414;
+  --emergency-border: #8a2f2f;
+
+  --info: #5b9bf0;
+  --info-ink: #9cc4f7;
+  --info-bg: #14212f;
+  --info-border: #2d4a6b;
+
+  --offline: #8d96a2;
+  --offline-ink: #b3bcc7;
+  --offline-bg: #1f2329;
+  --offline-border: #3a4049;
+
+  --demo: #a87ce8;
+  --demo-ink: #c3a5f2;
+  --demo-bg: #241a36;
+  --demo-border: #4c3a6e;
+
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --grid: #262b31;
+  --axis: #434a53;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Windows high-contrast / forced-colors: let the OS palette through. */
+@media (forced-colors: active) {
+  :root {
+    --border: CanvasText;
+    --border-strong: CanvasText;
+  }
+}

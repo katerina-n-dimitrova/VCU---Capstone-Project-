@@ -1,0 +1,201 @@
+{
+  "$comment": "SAMPLE PAYLOAD - SIMULATED DATA, NOT FROM A REAL VEHICLE.",
+  "description": "One sensor has stopped reporting. Note that its value is null — never 0.",
+  "whatTheAppDoes": "The battery current tile shows an em dash with 'Unavailable' and the reason beside it. The Live Data row is greyed and explains why. The chart draws a gap instead of a line at zero.",
+  "endpoints": {
+    "GET /api/v1/status": {
+      "vehicleId": "TUKTUK-001",
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "sequenceNumber": 48510,
+      "operatingState": "driving",
+      "battery": {
+        "voltageV": 73.9,
+        "currentA": null,
+        "stateOfChargePercent": 74
+      },
+      "phaseCurrentA": {
+        "phaseA": 57.8,
+        "phaseB": 57.2,
+        "phaseC": 58.0
+      },
+      "inputDuty": 45.1,
+      "temperatureC": {
+        "inverter": 51.0,
+        "mcu": 43.8
+      },
+      "uptimeSeconds": 4938,
+      "location": {
+        "latitude": -1.28638,
+        "longitude": 36.81722,
+        "accuracyMeters": 6.5,
+        "timestamp": "2026-09-29T14:34:05.000Z",
+        "valid": true,
+        "satellitesUsed": 11,
+        "speedKph": 24.1
+      },
+      "communication": {
+        "stm32Connected": true,
+        "esp32Connected": true,
+        "canConnected": true,
+        "gnssConnected": true,
+        "lastCanMessageAt": "2026-09-29T14:34:07.180Z",
+        "canReceiveErrorCount": 0,
+        "canBusLoadPercent": 22.4
+      },
+      "activeFaults": [
+        {
+          "id": "SENSOR_DISCONNECT-2026-09-29T14:32:11.400Z",
+          "code": "SENSOR_DISCONNECT",
+          "title": "A sensor is not responding",
+          "description": "The controller has stopped receiving readings from the battery current sensor. The affected measurement is shown as unavailable rather than guessed.",
+          "subsystem": "sensor",
+          "severity": "warning",
+          "status": "active",
+          "detectedAt": "2026-09-29T14:32:11.400Z",
+          "lastSeenAt": "2026-09-29T14:34:07.180Z",
+          "resolvedAt": null,
+          "measuredValue": null,
+          "unit": null,
+          "warningThreshold": null,
+          "criticalThreshold": null,
+          "possibleCauses": [
+            "Sensor connector has vibrated loose",
+            "Broken or chafed signal wire",
+            "Sensor has lost its supply voltage"
+          ],
+          "recommendedActions": [
+            "Check the sensor connector is fully seated and locked",
+            "Inspect the harness between the sensor and the controller for damage",
+            "Check the supply voltage at the sensor connector"
+          ],
+          "measurementId": "batteryCurrent",
+          "normalRangeMin": null,
+          "normalRangeMax": null,
+          "vehicleCanContinue": true,
+          "requiresImmediateShutdown": false,
+          "clearing": "self-clearing",
+          "occurrenceCount": 3
+        }
+      ]
+    },
+    "GET /api/v1/measurements": {
+      "timestamp": "2026-09-29T14:34:07.250Z",
+      "measurements": {
+        "batteryVoltage": {
+          "value": 74.2,
+          "rawValue": 2968,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "batteryCurrent": {
+          "value": null,
+          "rawValue": null,
+          "sampledAt": "2026-09-29T14:32:11.350Z",
+          "receivedAt": "2026-09-29T14:32:11.400Z",
+          "quality": "missing",
+          "qualityDetail": "No response from the pack current sensor on ADC1_IN5."
+        },
+        "stateOfCharge": {
+          "value": 78,
+          "rawValue": 156,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "inputDuty": {
+          "value": 46.2,
+          "rawValue": 462,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentA": {
+          "value": 59.1,
+          "rawValue": 2782,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentB": {
+          "value": 58.7,
+          "rawValue": 2774,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "phaseCurrentC": {
+          "value": 59.4,
+          "rawValue": 2788,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "inverterTemperature": {
+          "value": 52.4,
+          "rawValue": 924,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        },
+        "mcuTemperature": {
+          "value": 44.1,
+          "rawValue": 841,
+          "sampledAt": "2026-09-29T14:34:07.180Z",
+          "receivedAt": "2026-09-29T14:34:07.240Z",
+          "quality": "valid",
+          "qualityDetail": null
+        }
+      }
+    }
+  },
+  "websocketFrames": [
+    {
+      "type": "fault.new",
+      "data": {
+        "id": "SENSOR_DISCONNECT-2026-09-29T14:32:11.400Z",
+        "code": "SENSOR_DISCONNECT",
+        "title": "A sensor is not responding",
+        "description": "The controller has stopped receiving readings from the battery current sensor. The affected measurement is shown as unavailable rather than guessed.",
+        "subsystem": "sensor",
+        "severity": "warning",
+        "status": "active",
+        "detectedAt": "2026-09-29T14:32:11.400Z",
+        "lastSeenAt": "2026-09-29T14:34:07.180Z",
+        "resolvedAt": null,
+        "measuredValue": null,
+        "unit": null,
+        "warningThreshold": null,
+        "criticalThreshold": null,
+        "possibleCauses": [
+          "Sensor connector has vibrated loose",
+          "Broken or chafed signal wire",
+          "Sensor has lost its supply voltage"
+        ],
+        "recommendedActions": [
+          "Check the sensor connector is fully seated and locked",
+          "Inspect the harness between the sensor and the controller for damage",
+          "Check the supply voltage at the sensor connector"
+        ],
+        "measurementId": "batteryCurrent",
+        "normalRangeMin": null,
+        "normalRangeMax": null,
+        "vehicleCanContinue": true,
+        "requiresImmediateShutdown": false,
+        "clearing": "self-clearing",
+        "occurrenceCount": 3
+      }
+    },
+    {
+      "type": "status",
+      "data": "<the status object above>"
+    }
+  ]
+}
